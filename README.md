@@ -26,7 +26,7 @@ Basit ama işlevsel bir otobüs bileti rezervasyon uygulaması. ASP.NET MVC 5 mi
 
 ## 🧰 Kullanılan Teknolojiler
 
-- **Framework**: ASP.NET MVC 5
+- **Framework**: ASP.NET MVC 
 - **Dil**: C#
 - **ORM**: Entity Framework (Code First)
 - **Veritabanı**: SQL Server
