@@ -1,0 +1,60 @@
+﻿@using EntityLayer.Concrete
+@model List<Ticket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int id = 0;
+
+}
+
+
+<div class="col-sm-12">
+    <div class="white-box">
+        <h3 class="box-title">Bilet Listesi</h3>
+        <p class="text-muted">Toplam Bilet Sayısı : <code>@Model.Count()</code></p>
+        <div class="table-responsive">
+            <table class="table text-nowrap">
+                <thead>
+                    <tr>
+                        <th class="border-top-0">#</th>
+                        <th class="border-top-0">Nereden</th>
+                        <th class="border-top-0">Nereye</th>
+                        <th class="border-top-0">Tarih</th>
+                        <th class="border-top-0">Saat</th>
+                        <th class="border-top-0">Koltuk No</th>
+                        <th>Sil</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        { id = id + 1; }
+                        <tr>
+                            <td>@id</td>
+                            <td>@item.From</td>
+                            <td>@item.To</td>
+                            <td>@(DateTime.Parse(item.DateTime).ToString("dd/MM/yyyy HH:mm"))</td>
+                            <td>@item.Time</td>
+                            <td>@item.Seat</td>
+
+                            <td>
+                                <i class="fas fa-trash" style="color:#dc3545">
+
+                                    @Html.ActionLink("Sil", "DeleteTicket", new { id = item.Id }, new { @class = "btn btn-danger btn-sm ", onclick = "return confirm('Gerçekten Silmek İstiyor musunuz ?')" })
+                                </i>
+
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+

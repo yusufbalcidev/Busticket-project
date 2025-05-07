@@ -1,0 +1,478 @@
+﻿@using EntityLayer.Concrete;
+@model List<Bus>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if (TempData["TicketError"] != null)
+{
+
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Hata!',
+            text: '@TempData["TicketError"]',
+            confirmButtonText: 'Tamam'
+        });
+    </script>
+}
+
+@if (TempData["Success"] != null)
+{
+
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Basarili!',
+            text: '@TempData["Success"]',
+            confirmButtonText: 'Tamam'
+        });
+    </script>
+}
+
+@if (TempData["Logout"] != null)
+{
+
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Basarili!',
+            text: '@TempData["Logout"]',
+            confirmButtonText: 'Tamam'
+        });
+    </script>
+}
+
+<div data-elementor-type="wp-post" data-elementor-id="142" class="elementor elementor-142" data-elementor-post-type="envato_tk_templates">
+    <section class="elementor-section elementor-top-section elementor-element elementor-element-f7f2c82 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f7f2c82" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+        <div class="elementor-background-overlay"></div>
+        <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-9325028" data-id="9325028" data-element_type="column">
+                <div class="elementor-widget-wrap elementor-element-populated">
+                    <div class="elementor-element elementor-element-499e865 elementor-invisible elementor-widget elementor-widget-heading" data-id="499e865" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                            <h2 class="elementor-heading-title elementor-size-default">SOFTITO Seyahat Firması</h2>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-57d4011 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="57d4011" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:720}" data-widget_type="text-editor.default">
+                        <div class="elementor-widget-container">
+                            <p>Her zaman keyifli ve konforlu bir yolculuk sunmak için yanınızdayız. Üstün hizmet anlayışımızla seyahatinizi kolaylaştırıyoruz.</p>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-3345025 elementor-mobile-align-center elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="3345025" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:1080}" data-widget_type="button.default">
+                        <div class="elementor-widget-container">
+                            <div class="elementor-button-wrapper">
+                                <a class="elementor-button elementor-button-link elementor-size-md" href="#">
+                                    <span class="elementor-button-content-wrapper">
+                                        <span class="elementor-button-icon">
+
+                                        </span>
+                                        <span class="elementor-button-text">Hemen Başla</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-0739b2c" data-id="0739b2c" data-element_type="column">
+                <div class="elementor-widget-wrap elementor-element-populated">
+                    <div class="elementor-element elementor-element-e75b7da animated-slow elementor-invisible elementor-widget elementor-widget-image" data-id="e75b7da" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInRight&quot;}" data-widget_type="image.default">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="elementor-section elementor-top-section elementor-element elementor-element-b68013b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b68013b" data-element_type="section">
+        <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-73f0a3e elementor-invisible" data-id="73f0a3e" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;bounceInLeft&quot;}">
+                <div class="elementor-widget-wrap elementor-element-populated">
+                    <section class="elementor-section elementor-inner-section elementor-element elementor-element-eab7345 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="eab7345" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-default">
+                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-c67be1a" data-id="c67be1a" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-428fa7b elementor-widget elementor-widget-heading" data-id="428fa7b" data-element_type="widget" data-widget_type="heading.default">
+                                        <div class="elementor-widget-container">
+                                            <h2 class="elementor-heading-title elementor-size-default">Şimdi Ara!</h2>
+                                        </div>
+                                    </div>
+                                    <div class="elementor-element elementor-element-6e2945d elementor-position-left elementor-vertical-align-middle elementor-view-stacked elementor-shape-square elementor-mobile-position-left elementor-widget elementor-widget-icon-box" data-id="6e2945d" data-element_type="widget" data-widget_type="icon-box.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="elementor-icon-box-wrapper">
+
+
+
+                                                <div class="elementor-icon-box-content">
+
+                                                    <div class="elementor-icon-box-title">
+                                                        <span>
+                                                            Detaylı bilgi için arayın
+                                                        </span>
+                                                    </div>
+
+                                                    <p class="elementor-icon-box-description">
+                                                        (0212) 519 59 80
+                                                    </p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-992a480" data-id="992a480" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-cf97723 elementor-widget elementor-widget-heading" data-id="cf97723" data-element_type="widget" data-widget_type="heading.default">
+                                        <div class="elementor-widget-container">
+                                            <h2 class="elementor-heading-title elementor-size-default">Online Rezervasyon</h2>
+                                        </div>
+                                    </div>
+                                    <div class="elementor-element elementor-element-a3068b2 elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="a3068b2" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;33&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+                                        <div class="elementor-widget-container">
+                                            <form class="elementor-form" method="post">
+
+
+                                                <div class="elementor-form-fields-wrapper elementor-labels-above">
+                                                    <div class="elementor-field-group">
+                                                        <label>Nereden</label>
+                                                        <select name="From" required>
+                                                            <option value="Istanbul">Istanbul</option>
+                                                            <option value="Ankara">Ankara</option>
+                                                            <option value="Antalya">Antalya</option>
+                                                            <option value="Denizli">Denizli</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="elementor-field-group">
+                                                        <label>Nereye</label>
+                                                        <select name="To" required>
+                                                            <option value="Istanbul">Istanbul</option>
+                                                            <option value="Ankara">Ankara</option>
+                                                            <option value="Antalya">Antalya</option>
+                                                            <option value="Denizli">Denizli</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="elementor-field-group">
+                                                        <label>Ne Zaman</label>
+                                                        <input type="date" name="DateTime" required />
+                                                    </div>
+
+                                                    <div class="elementor-field-group">
+                                                        <label>Saat</label>
+                                                        <br />
+                                                        <input type="time" name="Time" required />
+                                                    </div>
+
+                                                    <div class="elementor-field-group">
+                                                        <label>Koltuk Numarasi</label>
+                                                        <input type="number" name="Seat" min="1" max="30" required />
+                                                    </div>
+
+                                                    <div class="elementor-field-group">
+                                                        <button type="submit">Bilet Satın Al</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="elementor-section elementor-top-section elementor-element elementor-element-ea11daa elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ea11daa" data-element_type="section">
+        <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-27224ba" data-id="27224ba" data-element_type="column">
+                <div class="elementor-widget-wrap elementor-element-populated">
+                    <div class="elementor-element elementor-element-1ab5bba elementor-invisible elementor-widget elementor-widget-heading" data-id="1ab5bba" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                            <h2 class="elementor-heading-title elementor-size-default">Uygun fiyatlı ve konforlu bir otobüs kiralama</h2>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-ffefd78 elementor-widget elementor-widget-text-editor" data-id="ffefd78" data-element_type="widget" data-widget_type="text-editor.default">
+                        <div class="elementor-widget-container">
+                            <p>Güvenli, konforlu ve ekonomik seyahat için doğru adrestesiniz. Geniş araç filomuz ve deneyimli ekibimizle hizmetinizdeyiz.</p>
+                        </div>
+                    </div>
+                    <section class="elementor-section elementor-inner-section elementor-element elementor-element-5c46bf7 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5c46bf7" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-no">
+                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-27e17b0" data-id="27e17b0" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-f5a39d1 elementor-widget__width-auto elementor-widget elementor-widget-counter" data-id="f5a39d1" data-element_type="widget" data-widget_type="counter.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="elementor-counter">
+                                                <div class="elementor-counter-number-wrapper">
+                                                    <span class="elementor-counter-number-prefix"></span>
+                                                    <span class="elementor-counter-number" data-duration="2000" data-to-value="25" data-from-value="0" data-delimiter=",">0</span>
+                                                    <span class="elementor-counter-number-suffix">+</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elementor-element elementor-element-d184d80 elementor-widget elementor-widget-elementskit-heading" data-id="d184d80" data-element_type="widget" data-widget_type="elementskit-heading.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="ekit-wid-con">
+                                                <div class="ekit-heading elementskit-section-title-wraper text_left   ekit_heading_tablet-   ekit_heading_mobile-">
+                                                    <h2 class="ekit-heading--title elementskit-section-title ">Otobüs Hazır</h2>
+                                                    <div class='ekit-heading__description'>
+                                                        <p>Filomuzda, farklı ihtiyaçlara uygun çok sayıda otobüs hizmetinizde.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-6a6e309" data-id="6a6e309" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-c4551ef elementor-widget__width-auto elementor-widget elementor-widget-counter" data-id="c4551ef" data-element_type="widget" data-widget_type="counter.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="elementor-counter">
+                                                <div class="elementor-counter-number-wrapper">
+                                                    <span class="elementor-counter-number-prefix"></span>
+                                                    <span class="elementor-counter-number" data-duration="2000" data-to-value="97" data-from-value="0" data-delimiter=",">0</span>
+                                                    <span class="elementor-counter-number-suffix">%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elementor-element elementor-element-1b5f856 elementor-widget elementor-widget-elementskit-heading" data-id="1b5f856" data-element_type="widget" data-widget_type="elementskit-heading.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="ekit-wid-con">
+                                                <div class="ekit-heading elementskit-section-title-wraper text_left   ekit_heading_tablet-   ekit_heading_mobile-">
+                                                    <h2 class="ekit-heading--title elementskit-section-title ">Memnun Müşteri</h2>
+                                                    <div class='ekit-heading__description'>
+                                                        <p>Müşteri memnuniyetini ön planda tutarak çalışıyoruz. Güleryüzlü ekibimizle her zaman yanınızdayız.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-96d5969" data-id="96d5969" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+                <div class="elementor-widget-wrap elementor-element-populated">
+                    <div class="elementor-element elementor-element-054b7f1 elementor-invisible elementor-widget elementor-widget-image" data-id="054b7f1" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="image.default">
+                        <div class="elementor-widget-container">
+                            <img decoding="async" width="1280" height="853" data-src="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/smiling-woman-with-smartphone-at-bus-stop-in-london.jpg" class="attachment-full size-full wp-image-328 lazyload" alt="Otobüs durağında akıllı telefonla gülümseyen kadın" data-srcset="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/smiling-woman-with-smartphone-at-bus-stop-in-london.jpg 1280w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/smiling-woman-with-smartphone-at-bus-stop-in-london-300x200.jpg 300w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/smiling-woman-with-smartphone-at-bus-stop-in-london-1024x682.jpg 1024w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/smiling-woman-with-smartphone-at-bus-stop-in-london-768x512.jpg 768w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/smiling-woman-with-smartphone-at-bus-stop-in-london-1536x1024.jpg 1536w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/smiling-woman-with-smartphone-at-bus-stop-in-london-800x533.jpg 800w" data-sizes="(max-width: 1280px) 100vw, 1280px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/853;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="elementor-section elementor-top-section elementor-element elementor-element-9879a6c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9879a6c" data-element_type="section">
+        <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2a0dbe6" data-id="2a0dbe6" data-element_type="column">
+                <div class="elementor-widget-wrap elementor-element-populated">
+                    <section class="elementor-section elementor-inner-section elementor-element elementor-element-a059b02 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a059b02" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-default">
+                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-460cf79" data-id="460cf79" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-92b486e elementor-invisible elementor-widget elementor-widget-heading" data-id="92b486e" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="heading.default">
+                                        <div class="elementor-widget-container">
+                                            <h2 class="elementor-heading-title elementor-size-default">Biz Kimiz</h2>
+                                        </div>
+                                    </div>
+                                    <div class="elementor-element elementor-element-5933071 elementor-invisible elementor-widget elementor-widget-heading" data-id="5933071" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
+                                        <div class="elementor-widget-container">
+                                            <h2 class="elementor-heading-title elementor-size-default">Yolculuğun tadını çıkarın – bizimle seyahat edin</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-7a88a36" data-id="7a88a36" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-2d72d41 elementor-widget elementor-widget-text-editor" data-id="2d72d41" data-element_type="widget" data-widget_type="text-editor.default">
+                                        <div class="elementor-widget-container">
+                                            <p>Seyahat sektöründe uzun yıllara dayanan deneyimimizle hizmet veriyoruz. Müşterilerimize güvenli ve keyifli yolculuklar sunmak için daima çalışıyoruz. Modern araçlarımız ve uzman kadromuz sayesinde kaliteli bir deneyim yaşatmayı hedefliyoruz.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="elementor-section elementor-inner-section elementor-element elementor-element-1c40429 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1c40429" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-no">
+                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-5895bcd elementor-invisible" data-id="5895bcd" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-e706494 elementor-widget elementor-widget-image" data-id="e706494" data-element_type="widget" data-widget_type="image.default">
+                                        <div class="elementor-widget-container">
+                                            <img decoding="async" width="1280" height="854" data-src="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/female-passenger-using-public-transport-1.jpg" class="attachment-full size-full wp-image-75 lazyload" alt="Toplu taşıma kullanan kadın yolcu" data-srcset="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/female-passenger-using-public-transport-1.jpg 1280w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/female-passenger-using-public-transport-1-300x200.jpg 300w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/female-passenger-using-public-transport-1-1024x684.jpg 1024w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/female-passenger-using-public-transport-1-768x513.jpg 768w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/female-passenger-using-public-transport-1-1536x1025.jpg 1536w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/female-passenger-using-public-transport-1-800x534.jpg 800w" data-sizes="(max-width: 1280px) 100vw, 1280px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/854;" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-5a7e1dc elementor-invisible" data-id="5a7e1dc" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-c654a2f elementor-widget elementor-widget-image" data-id="c654a2f" data-element_type="widget" data-widget_type="image.default">
+                                        <div class="elementor-widget-container">
+                                            <img decoding="async" width="1280" height="854" data-src="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/woman-holding-digital-camera-and-looking-away-with-mixed-race-man-holding-map-near-travel-bus.jpg" class="attachment-full size-full wp-image-78 lazyload" alt="Fotoğraf makinesi tutan kadın ve yanında haritaya bakan yolcu" data-srcset="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/woman-holding-digital-camera-and-looking-away-with-mixed-race-man-holding-map-near-travel-bus.jpg 1280w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/woman-holding-digital-camera-and-looking-away-with-mixed-race-man-holding-map-near-travel-bus-300x200.jpg 300w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/woman-holding-digital-camera-and-looking-away-with-mixed-race-man-holding-map-near-travel-bus-1024x684.jpg 1024w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/woman-holding-digital-camera-and-looking-away-with-mixed-race-man-holding-map-near-travel-bus-768x513.jpg 768w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/woman-holding-digital-camera-and-looking-away-with-mixed-race-man-holding-map-near-travel-bus-1536x1025.jpg 1536w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/woman-holding-digital-camera-and-looking-away-with-mixed-race-man-holding-map-near-travel-bus-800x534.jpg 800w" data-sizes="(max-width: 1280px) 100vw, 1280px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/854;" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-adc77c6 elementor-invisible" data-id="adc77c6" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;}">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-23ed3c9 elementor-widget elementor-widget-image" data-id="23ed3c9" data-element_type="widget" data-widget_type="image.default">
+                                        <div class="elementor-widget-container">
+                                            <img decoding="async" width="1280" height="854" data-src="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/happy-young-friends-talking-while-sitting-in-city-bus.jpg" class="attachment-full size-full wp-image-72 lazyload" alt="Şehir otobüsünde keyifle sohbet eden genç yolcular" data-srcset="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/happy-young-friends-talking-while-sitting-in-city-bus.jpg 1280w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/happy-young-friends-talking-while-sitting-in-city-bus-300x200.jpg 300w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/happy-young-friends-talking-while-sitting-in-city-bus-1024x684.jpg 1024w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/happy-young-friends-talking-while-sitting-in-city-bus-768x513.jpg 768w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/happy-young-friends-talking-while-sitting-in-city-bus-1536x1025.jpg 1536w, https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/happy-young-friends-talking-while-sitting-in-city-bus-800x534.jpg 800w" data-sizes="(max-width: 1280px) 100vw, 1280px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/854;" />
+                                        </div>
+                                    </div>
+                                    <div class="elementor-element elementor-element-b22a010 elementor-widget elementor-widget-elementskit-video" data-id="b22a010" data-element_type="widget" data-widget_type="elementskit-video.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="ekit-wid-con">
+                                                <div class="video-content" data-video-player="[]" data-video-setting="{&quot;videoVolume&quot;:&quot;horizontal&quot;,&quot;startVolume&quot;:0.8000000000000000444089209850062616169452667236328125,&quot;videoType&quot;:&quot;iframe&quot;,&quot;videoClass&quot;:&quot;mfp-fade&quot;}">
+
+                                                    <a class="ekit_icon_button ekit-video-popup ekit-video-popup-btn" href="https://www.youtube.com/embed/VhBl3dHT5SY?feature=oembed?playlist=VhBl3dHT5SY&amp;mute=0&amp;autoplay=0&amp;loop=no&amp;controls=0&amp;start=0&amp;end=" aria-label="video-popup">
+                                                        <i aria-hidden="true" class="icomoon icomoon-play2"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="elementor-section elementor-inner-section elementor-element elementor-element-252cc15 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="252cc15" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-default">
+                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-031f9c0" data-id="031f9c0" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-50c448e elementor-invisible elementor-widget elementor-widget-heading" data-id="50c448e" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="heading.default">
+                                        <div class="elementor-widget-container">
+                                            <h2 class="elementor-heading-title elementor-size-default">Öne Çıkanlar :</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-a78297e" data-id="a78297e" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-1cf5f9d elementor-widget elementor-widget-image-carousel" data-id="1cf5f9d" data-element_type="widget" data-settings="{&quot;slides_to_show&quot;:&quot;5&quot;,&quot;slides_to_show_tablet&quot;:&quot;3&quot;,&quot;slides_to_show_mobile&quot;:&quot;3&quot;,&quot;navigation&quot;:&quot;none&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500,&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:20,&quot;sizes&quot;:[]},&quot;image_spacing_custom_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;image_spacing_custom_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="image-carousel.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="elementor-image-carousel-wrapper swiper" role="region" aria-roledescription="carousel" aria-label="Image Carousel" dir="ltr">
+                                                <div class="elementor-image-carousel swiper-wrapper" aria-live="off">
+                                                    <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="1 of 5"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image lazyload" data-src="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/Clients-1.png" alt="Clients-1" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 300px; --smush-placeholder-aspect-ratio: 300/100;" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="2 of 5"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image lazyload" data-src="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/Clients-2.png" alt="Clients-2" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 300px; --smush-placeholder-aspect-ratio: 300/100;" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="3 of 5"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image lazyload" data-src="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/Clients-3.png" alt="Clients-3" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 300px; --smush-placeholder-aspect-ratio: 300/100;" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="4 of 5"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image lazyload" data-src="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/Clients-4.png" alt="Clients-4" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 300px; --smush-placeholder-aspect-ratio: 300/100;" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="5 of 5"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image lazyload" data-src="https://web.moxcreative.com/bigtranz/wp-content/uploads/sites/19/2023/03/Clients-5.png" alt="Clients-5" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 300px; --smush-placeholder-aspect-ratio: 300/100;" /></figure></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="elementor-section elementor-top-section elementor-element elementor-element-c9f14e9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c9f14e9" data-element_type="section">
+        <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ceb837d" data-id="ceb837d" data-element_type="column">
+                <div class="elementor-widget-wrap elementor-element-populated">
+                    <section class="elementor-section elementor-inner-section elementor-element elementor-element-c958159 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c958159" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-default">
+                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-415aae8 elementor-invisible" data-id="415aae8" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-ccf98a8 elementor-widget elementor-widget-heading" data-id="ccf98a8" data-element_type="widget" data-widget_type="heading.default">
+                                        <div class="elementor-widget-container">
+                                            <h2 class="elementor-heading-title elementor-size-default">Otobüslerimiz Hakkında</h2>
+                                        </div>
+                                    </div>
+                                    <div class="elementor-element elementor-element-d7cb50b elementor-invisible elementor-widget elementor-widget-heading" data-id="d7cb50b" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
+                                        <div class="elementor-widget-container">
+                                            <h2 class="elementor-heading-title elementor-size-default">Otobüs kiralama hizmetimizle yola çıkın</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-02f81e3" data-id="02f81e3" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-0c7a1bb elementor-widget elementor-widget-text-editor" data-id="0c7a1bb" data-element_type="widget" data-widget_type="text-editor.default">
+                                        <div class="elementor-widget-container">
+                                            <p>Filomuzdaki otobüsler, her türlü yolculuk ihtiyacınıza cevap verecek şekilde donatılmıştır. Konforlu koltuklar, geniş bagaj alanı ve teknolojik imkanlarla hizmetinizdeyiz.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="elementor-section elementor-inner-section elementor-element elementor-element-b04e877 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b04e877" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-default">
+
+                            @foreach (var item in Model)
+                            {
+                                <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-9159d65 elementor-invisible" data-id="9159d65" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-18c3087 elementor-widget elementor-widget-image" data-id="18c3087" data-element_type="widget" data-widget_type="image.default">
+                                            <div class="elementor-widget-container">
+                                                <img decoding="async" width="1280" height="854" src="@item.ImageUrl" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/854;" />
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-9219de3 elementor-widget elementor-widget-elementskit-heading" data-id="9219de3" data-element_type="widget" data-widget_type="elementskit-heading.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="ekit-wid-con">
+                                                    <div class="ekit-heading elementskit-section-title-wraper text_left   ekit_heading_tablet-   ekit_heading_mobile-">
+                                                        <h2 class="ekit-heading--title elementskit-section-title ">
+                                                            @item.Title <span><span>/ @item.Limit</span></span>
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-d42d26b elementor--star-style-star_unicode elementor-widget elementor-widget-star-rating" data-id="d42d26b" data-element_type="widget" data-widget_type="star-rating.default">
+                                            <div class="elementor-widget-container">
+
+                                                <div class="elementor-star-rating__wrapper">
+                                                    <div class="elementor-star-rating" title="4/5" itemtype="http://schema.org/Rating" itemscope="" itemprop="reviewRating">
+                                                        <i class="elementor-star-full">&#9733;</i>
+                                                        <i class="elementor-star-full">&#9733;</i>
+                                                        <i class="elementor-star-full">&#9733;</i>
+                                                        <i class="elementor-star-full">&#9733;</i>
+                                                        <i class="elementor-star-4">&#9733;</i>
+                                                        <span itemprop="ratingValue" class="elementor-screen-only">4/5</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-fc01277 elementor-widget elementor-widget-text-editor" data-id="fc01277" data-element_type="widget" data-widget_type="text-editor.default">
+                                            <div class="elementor-widget-container">
+                                                <p>@item.Description</p>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-0e5dc04 elementor-align-justify elementor-widget elementor-widget-button" data-id="0e5dc04" data-element_type="widget" data-widget_type="button.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="elementor-button-wrapper">
+                                                    <a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+                                                        <span class="elementor-button-content-wrapper">
+                                                            <span class="elementor-button-text">Detay Görüntüle</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

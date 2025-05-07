@@ -1,0 +1,83 @@
+﻿﻿@model EntityLayer.Concrete.Bus
+@{
+    ViewBag.Title = "EditBus";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row gutters">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="account-settings">
+                        <div class="user-profile">
+                            <div class="user-avatar">
+
+                                <img src="@Model.ImageUrl" id="output" name="ImageUrl" style="width:100%">
+                            </div>
+                            <br />
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="row gutters">
+                            <input name="ImageUrl" value="@Model.ImageUrl" hidden />
+                            <input name="Id" value="@Model.Id" hidden />
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <h6 class="mb-3 text-primary">Otobus Bilgileri</h6>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="name">Baslik</label>
+                                    <input type="text" value="@Model.Title" class="form-control" name="Title">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="surName">Limit</label>
+                                    <input type="text" value="@Model.Limit" class="form-control" name="Limit" id="surName">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Puan</label>
+                                    <input type="number" value="@Model.Rate" class="form-control" name="Rate" min="0" max="5">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Aciklama</label>
+                                    <input type="text" value="@Model.Description" class="form-control" name="Description" >
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="website">Görsel Değiştir</label>
+                                    <input type="file" class="form-control" name="FileUrl" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row gutters">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="text-right">
+                                    <button type="reset" id="submit" name="submit" class="btn btn-secondary">İptal</button>
+                                    <button type="submit" id="submit" name="submit" class="btn btn-primary">Otobus Guncelle</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

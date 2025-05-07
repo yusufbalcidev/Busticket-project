@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <h2 class="mb-4 text-primary">SOFTITO OTOBÜS FİLO YÖNETİM DASHBOARD</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-primary">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-secondary">Toplam Satılan Bilet Sayısı</h5>
+                    <h3 class="text-success">@ViewBag.count2</h3>
+                    <a href="/Ticket/Index" class="btn btn-success mt-3">Bilet Listesi</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm border-primary">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-secondary">Toplam Otobüs Sayısı</h5>
+                    <h3 class="text-success">@ViewBag.count1</h3>
+                    <a href="/Bus/Index" class="btn btn-primary mt-3">Otobüs Listesi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
