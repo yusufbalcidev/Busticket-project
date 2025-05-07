@@ -21,7 +21,6 @@ Basit ama işlevsel bir otobüs bileti rezervasyon uygulaması. ASP.NET MVC 5 mi
 ### 🛠️ Admin Paneli
 - Sefer ekleme/güncelleme/silme
 - Otobüs tanımlama
-- Koltuk planı oluşturma
 - Rezervasyonları listeleme
 - Yönetici giriş sistemi
 
